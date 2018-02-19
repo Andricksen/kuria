@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ajouter
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+  <ion-item>
+    <ion-label stacked>Nom Plat</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Petite description</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <h2>Ingredients</h2>
+  <button id="ajouter_ingredientBtn" ion-button full (tap)="add_new_ingredient()">Ajouter</button>
+
+
+
+  </ion-list>
+</ion-content>

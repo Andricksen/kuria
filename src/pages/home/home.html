@@ -1,14 +1,17 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Menu
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button id="loginBtn" ion-button full (tap)="go_to_login()">Login</button>
+  <button id="signBtn" ion-button full (tap)="go_to_sign()">Sign in</button>
+  <button id="addBtn" ion-button full (tap)="go_to_add_plat()">add plat</button>
+  <button id="detailsBtn" ion-button full (tap)="go_to_details()">info plat</button>
+  <button id="actualiteBtn" ion-button full (tap)="go_to_actu()">acceuil</button>
+  <button ion-button full>Mes plats</button>
+  <button ion-button full>Modifier plat</button>
 </ion-content>

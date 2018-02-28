@@ -11,25 +11,27 @@
 
     <ion-item>
       <ion-label floating>Nom complet</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input name="nom" type="text" [(ngModel)]="data.nom"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Telephone</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input name="telephone" type="text" [(ngModel)]="data.telephone"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Mot de passe</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input name="motdepasse" type="password" [(ngModel)]="data.motdepasse"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Confirmer Mot de passe</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input name="cmotdepasse" type="password" [(ngModel)]="data.cmotdepasse"></ion-input>
     </ion-item>
     <div padding>
-      <button ion-button block>Creer</button>
+      <button ion-button block (click)="submit()">Creer</button>
     </div>
   </ion-list>
-
+  <ion-card-content>
+    <b>{{data.response}}</b>
+  </ion-card-content>
 
 </ion-content>

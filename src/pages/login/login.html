@@ -11,17 +11,21 @@
 
     <ion-item>
       <ion-label floating>Telephone</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input name="telephone" type="text"  [(ngModel)]="data.telephone"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Mot de passe</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input name="motdepasse" type="password"  [(ngModel)]="data.motdepasse"></ion-input>
     </ion-item>
     <div padding>
-      <button ion-button block>Connexion</button>
+      <button ion-button block (click)="submit()">Connexion</button>
     </div>
   </ion-list>
+
+  <ion-card-content>
+    <b>{{data.response}}</b>
+  </ion-card-content>
 
 
 </ion-content>

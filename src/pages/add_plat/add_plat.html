@@ -8,19 +8,32 @@
 
 <ion-content padding>
   <ion-list>
-
   <ion-item>
     <ion-label stacked>Nom Plat</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input name="nom_plat" type="text" [(ngModel)]="data.nom_plat"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>Petite description</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input name="description_plat" type="text" [(ngModel)]="data.description_plat"></ion-input>
   </ion-item>
-  <h2>Ingredients</h2>
-  <button id="ajouter_ingredientBtn" ion-button full (tap)="add_new_ingredient()">Ajouter</button>
+    <h2>Ingredients</h2>
+    <ion-item>
+      <ion-label stacked>Lister les ingredients</ion-label>
+      <ion-input name="ingredient" type="text" [(ngModel)]="data.ingredient"></ion-input>
+    </ion-item>
 
+    <h2>Details</h2>
 
+    <ion-item>
+      <ion-label stacked>Explications supplementaire</ion-label>
+      <ion-input name="explications" type="text" [(ngModel)]="data.explications"></ion-input>
+    </ion-item>
+
+  <button id="creerPlatBtn" ion-button full (tap)="new_plat()">Creer nouveau plat</button>
 
   </ion-list>
+  <ion-card-content>
+    <b>{{data.response}}</b>
+  </ion-card-content>
+
 </ion-content>

@@ -9,6 +9,7 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { HttpClientModule } from '@angular/common/http';
 import { Cordova } from '@ionic-native/core';
 
 import { MyApp } from './app.component';
@@ -33,6 +34,7 @@ import {AddImgPage} from "../pages/add_img/add_img";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     HttpModule
   ],

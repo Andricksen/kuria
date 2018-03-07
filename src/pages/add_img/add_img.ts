@@ -1,46 +1,41 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import {Injectable, Component} from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
+
+
+@Injectable()
 @Component({
     selector: 'page-add_img',
     templateUrl: 'add_img.html'
 })
-export class AddImgPage {
+export class AddImgPage
+{
+    constructor(private http: Http){}
 
-
-    constructor(public navCtrl: NavController,
-                private camera: Camera,
-                private transfer: FileTransfer
-    ) {}
-    private fileTransfer: FileTransferObject = this.transfer.create();
-
-    open_camera(){
-        this.camera.getPicture({
-            quality: 50,
-            destinationType: this.camera.DestinationType.FILE_URI,
-            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-            encodingType: this.camera.EncodingType.JPEG
-        }).then((imageData) => {
-            let options: FileUploadOptions = {
-                fileKey: "file",
-                fileName:imageData.substr(imageData.lastIndexOf('/') + 1),
-                chunkedMode: false,
-                mimeType: "image/jpg"
-            }
-            this.fileTransfer.upload(imageData,'http://localhost/kuria/add_img.php', options)
-                .then((data) => {
-                    alert("Success");
-                }, (err) => {
-                    console.log(JSON.stringify(err));
-                })
-        }, (err) => {
-            console.log(JSON.stringify(err));
-        });
+    public uploadImage(formdata: any)
+    {
+        let url :string ="http://localhost/kuria/add_img.php";
+        return this.http.post(url,formdata)
+            .catch(this._errorHandler);
     }
 
+    private _errorHandler(error : Response)
+    {
+        console.log('Erreur survnue: ' + error);
+        return Observable.throw(error || 'erreur lors du telechargememtn du fichier');
+    }
 
+    public getFilesList()
+    {
+        let url :string ="http://192.168.173.1/kuria/get_all_plat.php";
+        return this.http.get(url)
+            .catch(this._errorHandler);
+
+    }
 
 
 }

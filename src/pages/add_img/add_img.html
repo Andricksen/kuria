@@ -1,18 +1,19 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Camera Upload</ion-title>
+        <ion-title>Images</ion-title>
     </ion-navbar>
 </ion-header>
-<script src="cordova.js"></script>
+
 <ion-content padding>
-    <h2>Welcome to Ionic!</h2>
+    <h2>Ajouter des images</h2>
     <p>
-        Click the button below to take picture and upload to server .
+        Veuillez ajouter une ou plusieurs images de votre plats
     </p>
+    <div id="spinner" class="spinner"></div>
     <br/><br/><br/>
     <div text-center>
-        <button ion-button color="danger" (click)="open_camera()" icon-left><ion-icon name="camera"></ion-icon> Take Picture</button>
-
+        <input type="file" id="selectFile" name="selectFile" formenctype="multipart/form-data"/>
+        <input type="button" ion-button full  value="upload Image" (click)="uploadImage()" />
     </div>
     <br/><br/><br/>
     <p>
